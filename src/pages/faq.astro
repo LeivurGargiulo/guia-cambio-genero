@@ -1,0 +1,194 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = "Preguntas frecuentes";
+const description = "Respuestas a las dudas más comunes sobre el cambio de identidad de género";
+const icon = "❓";
+---
+
+<Layout title={`${title} - Guía de Cambio de Género`} description={description}>
+  <div class="container mx-auto px-4 py-8">
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumbs text-sm mb-6">
+      <ul>
+        <li><a href="/" class="hover:text-primary">Inicio</a></li>
+        <li class="text-base-content opacity-60">{title}</li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <article class="max-w-4xl mx-auto">
+      
+      <!-- Header -->
+      <header class="mb-8">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="text-4xl">{icon}</div>
+          <div>
+            <h1 class="text-3xl md:text-4xl font-bold">{title}</h1>
+            <p class="text-lg text-base-content opacity-70 mt-2">{description}</p>
+          </div>
+        </div>
+        
+        <div class="text-sm text-base-content opacity-50">
+          Última actualización: 2025-08-02
+        </div>
+      </header>
+
+      <!-- Content -->
+      <div class="prose prose-lg max-w-none">
+        
+        <h1>Preguntas frecuentes</h1>
+
+        <h2>¿Puedo poner "X" en el género?</h2>
+        
+        <p><strong>Sí</strong>, la ley argentina permite que en el campo género/sexo figuren las opciones:</p>
+        <ul>
+          <li><strong>M</strong> (Masculino)</li>
+          <li><strong>F</strong> (Femenino)</li>
+          <li><strong>X</strong> (No binario/Otro)</li>
+        </ul>
+
+        <p>La opción X está disponible tanto en la partida de nacimiento como en el DNI.</p>
+
+        <h2>¿Puedo viajar al exterior con DNI género X?</h2>
+        
+        <p><strong>⚠️ Importante:</strong> Actualmente hay <strong>limitaciones para viajar</strong> con documentos que tengan género X:</p>
+        
+        <ul>
+          <li>Muchos países no reconocen la opción X</li>
+          <li>Algunos sistemas de inmigración pueden generar inconvenientes</li>
+          <li>Las aerolíneas pueden tener problemas con sus sistemas</li>
+        </ul>
+
+        <p><strong>💡 Recomendación:</strong> Si viajás frecuentemente al exterior, considerá usar M o F en los documentos.</p>
+
+        <h2>¿Puedo cambiar el nombre y género más de una vez?</h2>
+        
+        <p><strong>Sí, pero con limitaciones:</strong></p>
+        
+        <ul>
+          <li>El <strong>primer cambio</strong> es libre y sin restricciones</li>
+          <li>Para <strong>cambios posteriores</strong> necesitás autorización judicial</li>
+          <li>Hay que demostrar motivos válidos para el segundo cambio</li>
+        </ul>
+
+        <h2>¿Qué pasa si una institución se niega a cambiar mis datos?</h2>
+        
+        <p><strong>Es discriminación</strong> y podés actuar:</p>
+        
+        <ol>
+          <li><strong>Mostrales la ley:</strong> Llevá copia de la Ley 26.743</li>
+          <li><strong>Hacé el pedido por escrito:</strong> Email o nota con acuse de recibo</li>
+          <li><strong>Denunciá en INADI:</strong> 0800-999-2345</li>
+          <li><strong>Contactá organizaciones LGBTI+:</strong> Te pueden asesorar y acompañar</li>
+        </ol>
+
+        <h2>¿Tengo que hacer tratamiento hormonal o cirugías?</h2>
+        
+        <p><strong>¡NO!</strong> La ley es muy clara:</p>
+        
+        <ul>
+          <li>No se requiere ningún tratamiento médico</li>
+          <li>No se requiere diagnóstico psicológico</li>
+          <li>No se requiere autorización de profesionales</li>
+          <li>Solo necesitás tu voluntad y ser mayor de 18 años</li>
+        </ul>
+
+        <h2>¿Puedo cambiar datos sin documento argentino?</h2>
+        
+        <p><strong>Sí</strong>, si tenés residencia en Argentina:</p>
+        
+        <ul>
+          <li>Con <strong>residencia temporaria o permanente</strong></li>
+          <li>Tenés que dirigirte al <strong>ReNaPer</strong></li>
+          <li>El proceso es similar pero con documentación adicional</li>
+          <li>Consultá en el ReNaPer los requisitos específicos</li>
+        </ul>
+
+        <h2>¿Qué pasa con mis bienes y propiedades?</h2>
+        
+        <p><strong>Mantenés todos tus derechos:</strong></p>
+        
+        <ul>
+          <li>Todas las propiedades siguen siendo tuyas</li>
+          <li>Los contratos laborales continúan vigentes</li>
+          <li>Las cuentas bancarias se mantienen (actualizando datos)</li>
+          <li>Los títulos universitarios mantienen su validez</li>
+        </ul>
+
+        <h2>¿Cuánto tiempo demora todo el proceso?</h2>
+        
+        <p><strong>Tiempos aproximados:</strong></p>
+        
+        <ul>
+          <li><strong>Partida de nacimiento:</strong> 5 a 15 días hábiles</li>
+          <li><strong>DNI:</strong> 15 a 30 días hábiles</li>
+          <li><strong>Instituciones privadas:</strong> Variable (1 día a 2 meses)</li>
+          <li><strong>Bancos y obras sociales:</strong> 5 a 30 días</li>
+        </ul>
+
+        <h2>¿Puedo hacerlo si soy menor de 18 años?</h2>
+        
+        <p><strong>Para menores de edad:</strong></p>
+        
+        <ul>
+          <li>Se requiere <strong>acompañamiento de representantes legales</strong></li>
+          <li>O <strong>autorización judicial</strong> si hay desacuerdo familiar</li>
+          <li>El proceso es similar pero con pasos adicionales</li>
+          <li>Recomendamos asesorarse con organizaciones especializadas</li>
+        </ul>
+
+        <h2>¿Los cambios tienen costo?</h2>
+        
+        <p><strong>En organismos públicos es gratuito:</strong></p>
+        
+        <ul>
+          <li><strong>Registro Civil:</strong> Sin costo</li>
+          <li><strong>ReNaPer (DNI):</strong> Sin costo</li>
+          <li><strong>ANSES:</strong> Sin costo</li>
+          <li><strong>Instituciones privadas:</strong> No pueden cobrar por cambiar datos</li>
+        </ul>
+
+        <h2>¿Qué pasa con mi número de CUIL/CUIT?</h2>
+        
+        <p><strong>Se mantiene el mismo número:</strong></p>
+        
+        <ul>
+          <li>Solo cambia el <strong>primer dígito</strong> (que indica género)</li>
+          <li>El resto del número permanece igual</li>
+          <li>Se mantiene todo el historial laboral y aportes</li>
+        </ul>
+
+        <div class="alert alert-info">
+          <div>
+            <h3 class="font-bold">¿No encontraste tu pregunta?</h3>
+            <p>Contactate con:</p>
+            <ul>
+              <li><strong>Defensoría LGBT:</strong> 4338-4900 int. 8106</li>
+              <li><strong>INADI:</strong> 0800-999-2345</li>
+              <li><strong>Organizaciones LGBTI+</strong> de tu zona</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Navigation -->
+      <nav class="flex justify-between items-center mt-12 pt-8 border-t border-base-300">
+        <a href="/antes-del-cambio" class="btn btn-outline btn-sm">
+          ← Antes del cambio
+        </a>
+        
+        <a href="/" class="btn btn-ghost btn-sm">
+          Volver al inicio
+        </a>
+        
+        <a href="/recursos" class="btn btn-outline btn-sm">
+          Recursos →
+        </a>
+      </nav>
+
+    </article>
+  </div>
+</Layout>

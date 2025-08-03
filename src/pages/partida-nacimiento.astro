@@ -1,0 +1,185 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Partida de nacimiento - Guía de Cambio de Género">
+  <main class="container mx-auto px-4 py-8 max-w-4xl">
+    
+    <div class="breadcrumbs text-sm mb-6">
+      <ul>
+        <li><a href="/" class="text-primary hover:text-primary-focus">Inicio</a></li>
+        <li>Partida de nacimiento</li>
+      </ul>
+    </div>
+
+    <div class="prose max-w-none">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="text-4xl">📜</span>
+        <h1 class="text-3xl md:text-4xl font-bold mb-0">Partida de nacimiento</h1>
+      </div>
+
+      <div class="alert alert-info mb-6">
+        <span>
+          <strong>Cómo rectificar tu partida de nacimiento según tu provincia</strong>
+        </span>
+      </div>
+
+      <h1>Rectificación de la partida de nacimiento</h1>
+
+      <p><strong>Este paso es indispensable para poder actualizar nombre y género en el DNI.</strong> Es el mismo trámite para género X (identidad no binarie, entre otras).</p>
+
+      <h2>Vas a necesitar:</h2>
+
+      <ul>
+        <li>DNI sin rectificar</li>
+        <li>En lo posible datos de partida de nacimiento sin rectificar (no es indispensable para realizar el trámite)</li>
+        <li>En CABA podrán solicitarte un pago para obtener la partida vieja, en caso de no tener todos los datos (alrededor de $6180 en septiembre de 2024)</li>
+        <li>En Provincia de Buenos Aires te solicitarán pagar una tasa de $900 argentinos/USD2 aprox (junio 2023)</li>
+        <li>Partida de nacimiento sin rectificar</li>
+        <li><strong>NO te pueden exigir</strong> recibir tratamiento hormonal, intervenciones quirúrgicas, tener diagnóstico de disforia de género ni ningún tipo de autorización o tratamiento psicológico o médico para realizar el trámite</li>
+        <li>Compañeres recomiendan <strong>ir acompañade</strong> a realizar el trámite</li>
+      </ul>
+
+      <h2>Paso 1: Solicitar tu partida sin rectificar</h2>
+
+      <h3>En CABA (online):</h3>
+      <ol>
+        <li>Ingresar a <a href="https://buenosaires.gob.ar/inicio/" target="_blank" class="link link-primary">https://buenosaires.gob.ar/inicio/</a></li>
+        <li>Crear un usuario con un correo electrónico activo</li>
+        <li>Completar los datos requeridos. No es necesario conocer todos los datos de la partida, aunque de no contar con los más básicos se cobrará un monto (alrededor de $6180 en septiembre de 2024)</li>
+        <li>De contar con la mayoría de datos, se enviará en un plazo de máximo una semana al correo electrónico</li>
+        <li><strong>Importante</strong>: revisar SPAM/correos no deseados</li>
+      </ol>
+
+      <h3>En Provincia de Buenos Aires (online):</h3>
+      <ol>
+        <li>Ingresar a: <a href="https://partidas.mgob.gba.gob.ar/" target="_blank" class="link link-primary">https://partidas.mgob.gba.gob.ar/</a></li>
+        <li>Crear un usuario con un correo electrónico activo</li>
+        <li>Hacer click en "Iniciar una nueva solicitud"</li>
+        <li>Completar los datos personales</li>
+        <li>En "Seleccione el trámite para el cual solicita la partida", seleccionar <strong>"Por Errores u Omisiones No Imputables a la Administración Pública"</strong></li>
+        <li>En "Seleccione tasa" hay varias opciones según la urgencia. Quienes realizaron el trámite por medio de la opción tasa "Común" lo recibieron en un máximo de 3 a 5 días</li>
+      </ol>
+
+      <h2>Paso 2: Rectificación de la partida</h2>
+
+      <div class="alert alert-warning mb-6">
+        <div>
+          <h3 class="font-bold">⚠️ Importante</h3>
+          <p>El proceso varía según tu provincia. Aquí se detallan los pasos para CABA y Provincia de Buenos Aires, que son los más comunes.</p>
+        </div>
+      </div>
+
+      <h3>Documentación necesaria</h3>
+      <ul>
+        <li>DNI original</li>
+        <li>Partida de nacimiento original sin rectificar</li>
+        <li>Formulario de rectificación (lo proporcionan en el lugar)</li>
+        <li>Declaración jurada</li>
+      </ul>
+
+      <h3>Proceso presencial</h3>
+      <ol>
+        <li><strong>Dirigirse al Registro Civil</strong> correspondiente a tu lugar de nacimiento</li>
+        <li><strong>Solicitar la rectificación</strong> bajo la Ley 26.743 de Identidad de Género</li>
+        <li><strong>Completar formularios</strong> con tus datos autopercibidos</li>
+        <li><strong>Declaración jurada</strong> sobre tu identidad de género</li>
+        <li><strong>Pago de tasas</strong> (si corresponde según la provincia)</li>
+      </ol>
+
+      <h2>Tiempos de procesamiento</h2>
+
+      <div class="overflow-x-auto">
+        <table class="table table-zebra w-full">
+          <thead>
+            <tr>
+              <th>Provincia</th>
+              <th>Tiempo estimado</th>
+              <th>Costo aproximado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>CABA</td>
+              <td>5-10 días hábiles</td>
+              <td>$6.180 (si faltan datos)</td>
+            </tr>
+            <tr>
+              <td>Buenos Aires</td>
+              <td>3-5 días hábiles</td>
+              <td>$900 (tasa común)</td>
+            </tr>
+            <tr>
+              <td>Otras provincias</td>
+              <td>Variable</td>
+              <td>Consultar en cada registro</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Después de la rectificación</h2>
+
+      <p>Una vez que tengas tu nueva partida de nacimiento rectificada:</p>
+
+      <ul>
+        <li>✅ Podés proceder a rectificar tu DNI</li>
+        <li>✅ Tu identidad queda legalmente reconocida</li>
+        <li>✅ Podés actualizar documentos en instituciones</li>
+      </ul>
+
+      <h2>Problemas frecuentes</h2>
+
+      <h3>Demoras en el proceso</h3>
+      <ul>
+        <li><strong>Problema</strong>: El trámite se demora más de lo esperado</li>
+        <li><strong>Solución</strong>: Consultá el estado del trámite por teléfono o web</li>
+        <li><strong>Recursos</strong>: Contactá organizaciones de apoyo si hay resistencia</li>
+      </ul>
+
+      <h3>Negativa del personal</h3>
+      <ul>
+        <li><strong>Problema</strong>: El personal se niega a realizar el trámite</li>
+        <li><strong>Solución</strong>: Recordales que es un derecho garantizado por ley</li>
+        <li><strong>Recurso legal</strong>: Podés hacer denuncia en INADI</li>
+      </ul>
+
+      <h2>Recursos de apoyo</h2>
+
+      <div class="grid md:grid-cols-2 gap-4 my-6">
+        <div class="card bg-base-200">
+          <div class="card-body">
+            <h3 class="card-title text-lg">INADI</h3>
+            <p class="text-sm">Instituto Nacional contra la Discriminación</p>
+            <p class="text-sm"><strong>Teléfono:</strong> 0800-999-2345</p>
+          </div>
+        </div>
+        
+        <div class="card bg-base-200">
+          <div class="card-body">
+            <h3 class="card-title text-lg">Defensoría LGBT</h3>
+            <p class="text-sm">Asesoramiento jurídico gratuito</p>
+            <p class="text-sm"><strong>Email:</strong> defensorialgbt@caba.gob.ar</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 text-center bg-gradient-to-r from-blue-500 to-teal-500 text-white rounded-2xl p-6">
+        <p class="text-lg font-semibold mb-0">
+          <em>"Tu partida rectificada es el primer paso hacia el reconocimiento legal pleno de tu identidad."</em>
+        </p>
+      </div>
+
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-between mt-12">
+      <a href="/antes-del-cambio" class="btn btn-outline">
+        ← Antes del cambio
+      </a>
+      <a href="/dni" class="btn btn-primary">
+        DNI →
+      </a>
+    </div>
+
+  </main>
+</Layout>

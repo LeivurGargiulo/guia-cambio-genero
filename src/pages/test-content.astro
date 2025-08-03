@@ -1,0 +1,107 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+// Test fetching content collections
+let sections = [];
+let alerts = [];
+let error = null;
+
+try {
+  sections = await getCollection('sections');
+  alerts = await getCollection('alerts');
+  
+  // Sort sections by order
+  sections.sort((a, b) => a.data.order - b.data.order);
+  
+  // Filter active alerts and sort by order
+  alerts = alerts.filter(alert => alert.data.active).sort((a, b) => a.data.order - b.data.order);
+} catch (err) {
+  error = err.message;
+}
+---
+
+<Layout title="Content Collections Test">
+  <main class="container mx-auto px-4 py-8 max-w-4xl">
+    <h1 class="text-3xl font-bold mb-6">Content Collections Test</h1>
+    
+    {error && (
+      <div class="alert alert-error mb-6">
+        <span>❌ Error loading content: {error}</span>
+      </div>
+    )}
+    
+    {!error && (
+      <div class="alert alert-success mb-6">
+        <span>✅ Content collections loaded successfully!</span>
+      </div>
+    )}
+    
+    <div class="grid gap-8">
+      {/* Test Alerts Collection */}
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Alerts Collection ({alerts.length} items)</h2>
+        <div class="space-y-4">
+          {alerts.map((alert) => (
+            <div class="alert alert-{alert.data.type}">
+              <span>
+                <strong>{alert.data.title}</strong> - 
+                Type: {alert.data.type}, 
+                Order: {alert.data.order},
+                ID: {alert.id}
+              </span>
+            </div>
+          ))}
+        </div>
+      </section>
+      
+      {/* Test Sections Collection */}
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Sections Collection ({sections.length} items)</h2>
+        <div class="grid gap-4">
+          {sections.map((section) => (
+            <div class="card bg-base-200 shadow-md">
+              <div class="card-body">
+                <h3 class="card-title">
+                  {section.data.icon} {section.data.title}
+                </h3>
+                <div class="text-sm opacity-75 mb-2">
+                  <span class="badge badge-primary">Order: {section.data.order}</span>
+                  <span class="badge badge-secondary ml-2">ID: {section.id}</span>
+                  <span class="badge badge-accent ml-2">Slug: {section.data.slug}</span>
+                </div>
+                {section.data.description && (
+                  <p class="text-sm">{section.data.description}</p>
+                )}
+                {section.data.lastUpdated && (
+                  <p class="text-xs opacity-50">Last updated: {section.data.lastUpdated}</p>
+                )}
+                
+                {/* Test rendering content */}
+                <details class="mt-4">
+                  <summary class="cursor-pointer">View content preview</summary>
+                  <div class="mt-2 p-4 bg-base-100 rounded">
+                    <div class="prose max-w-none text-sm">
+                      {(() => {
+                        try {
+                          const Content = section.render?.().Content;
+                          return Content ? <Content /> : "Content not available";
+                        } catch (err) {
+                          return `Render error: ${err.message}`;
+                        }
+                      })()}
+                    </div>
+                  </div>
+                </details>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+    
+    <div class="mt-8 text-center">
+      <a href="/" class="btn btn-primary">← Back to Home</a>
+    </div>
+  </main>
+</Layout>

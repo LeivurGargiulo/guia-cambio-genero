@@ -1,0 +1,149 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = "Antes del cambio registral";
+const description = "Derechos que tenés sin haber cambiado tu DNI o partida de nacimiento";
+const icon = "⚖️";
+---
+
+<Layout title={`${title} - Guía de Cambio de Género`} description={description}>
+  <div class="container mx-auto px-4 py-8">
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumbs text-sm mb-6">
+      <ul>
+        <li><a href="/" class="hover:text-primary">Inicio</a></li>
+        <li class="text-base-content opacity-60">{title}</li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <article class="max-w-4xl mx-auto">
+      
+      <!-- Header -->
+      <header class="mb-8">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="text-4xl">{icon}</div>
+          <div>
+            <h1 class="text-3xl md:text-4xl font-bold">{title}</h1>
+            <p class="text-lg text-base-content opacity-70 mt-2">{description}</p>
+          </div>
+        </div>
+        
+        <div class="text-sm text-base-content opacity-50">
+          Última actualización: 2025-08-02
+        </div>
+      </header>
+
+      <!-- Content -->
+      <div class="prose prose-lg max-w-none">
+        
+        <!-- Content from sections/antes-del-cambio.md -->
+        <h1>¿Aún NO realizaste el cambio registral? Cómo deben figurar tus datos</h1>
+
+        <p>El <strong>artículo 12</strong> de la Ley de Identidad de Género garantiza que debe respetarse la identidad adoptada por las personas, en especial por niñas, niños y adolescentes.</p>
+
+        <p>Esto significa que <strong>las instituciones públicas y privadas deben respetarte y usar tu nombre elegido</strong>, aunque aún no hayas hecho el cambio registral.</p>
+
+        <h2>¿Qué significa esto en la práctica?</h2>
+
+        <h3>En instituciones educativas</h3>
+        <ul>
+          <li>Deben usar tu nombre elegido en la lista de clases</li>
+          <li>En comunicaciones orales y escritas</li>
+          <li>En credenciales estudiantiles</li>
+          <li>En ceremonias y actos escolares</li>
+        </ul>
+
+        <p><strong>⚠️ Excepción:</strong> En documentos oficiales con validez legal (certificados analíticos, títulos) mantendrán el nombre registral hasta que lo cambies.</p>
+
+        <h3>En el trabajo</h3>
+        <ul>
+          <li>En la identificación en el lugar de trabajo</li>
+          <li>En comunicaciones internas</li>
+          <li>En presentaciones y contacto con clientes</li>
+          <li>En sistemas internos no oficiales</li>
+        </ul>
+
+        <h3>En salud</h3>
+        <ul>
+          <li>En la atención médica</li>
+          <li>En historias clínicas (formato: "nombre legal (nombre elegido)" o similar)</li>
+          <li>En comunicación con profesionales</li>
+          <li>En internaciones y procedimientos</li>
+        </ul>
+
+        <h3>En instituciones deportivas, culturales y sociales</h3>
+        <ul>
+          <li>Deben respetar tu identidad de género autopercibida</li>
+          <li>Usar el nombre elegido en todas las comunicaciones</li>
+          <li>Permitir el uso de espacios acordes a tu identidad</li>
+        </ul>
+
+        <h2>Formato sugerido para datos</h2>
+
+        <p>Cuando las instituciones necesiten mantener el nombre registral por cuestiones legales, pueden usar formatos como:</p>
+
+        <div class="bg-base-200 p-4 rounded-lg">
+          <p><strong>Formato recomendado:</strong><br>
+          <code>Nombre Legal (Nombre Elegido)</code><br>
+          <code>Nombre Elegido [Nombre Legal]</code></p>
+        </div>
+
+        <h2>¿Qué pasa con instituciones religiosas?</h2>
+
+        <p>Las instituciones religiosas pueden tener políticas internas, pero <strong>no pueden discriminar</strong> ni negar servicios por identidad de género.</p>
+
+        <h2>Derechos electorales</h2>
+
+        <p>Aunque no hayas hecho el cambio registral:</p>
+        <ul>
+          <li>Tenés derecho a votar normalmente</li>
+          <li>Las autoridades deben evitar situaciones discriminatorias</li>
+          <li>Podés solicitar la <strong>mesa accesible</strong> si considerás que tu identidad puede generar situaciones incómodas</li>
+        </ul>
+
+        <h2>¿Qué hacer si no respetan estos derechos?</h2>
+
+        <ol>
+          <li><strong>Informá sobre la ley:</strong> Mostrá el artículo 12 de la Ley 26.743</li>
+          <li><strong>Solicitá por escrito:</strong> Dejá constancia del pedido</li>
+          <li><strong>Buscá apoyo:</strong> Contactá a organizaciones LGBTI+ o la Defensoría</li>
+          <li><strong>Denunciá:</strong> En INADI o la Defensoría del Pueblo si persiste la discriminación</li>
+        </ol>
+
+        <div class="alert alert-info">
+          <div>
+            <h3 class="font-bold">💡 Consejo importante</h3>
+            <p>Llevá siempre una copia del artículo 12 de la Ley de Identidad de Género. Muchas veces las instituciones no conocen esta obligación legal.</p>
+          </div>
+        </div>
+
+        <h2>Recursos de apoyo</h2>
+
+        <ul>
+          <li><strong>Defensoría LGBT:</strong> 4338-4900 int. 8106</li>
+          <li><strong>INADI:</strong> 0800-999-2345</li>
+          <li><strong>Línea 148:</strong> Para consultas sobre el registro civil</li>
+        </ul>
+
+      </div>
+
+      <!-- Navigation -->
+      <nav class="flex justify-between items-center mt-12 pt-8 border-t border-base-300">
+        <a href="/" class="btn btn-outline btn-sm">
+          ← Inicio
+        </a>
+        
+        <a href="/" class="btn btn-ghost btn-sm">
+          Volver al inicio
+        </a>
+        
+        <a href="/partida-nacimiento" class="btn btn-outline btn-sm">
+          Partida de nacimiento →
+        </a>
+      </nav>
+
+    </article>
+  </div>
+</Layout>

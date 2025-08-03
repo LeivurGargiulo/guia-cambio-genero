@@ -1,49 +1,226 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+// Get content
+const sections = await getCollection('sections');
+const alerts = await getCollection('alerts');
+
+// Sort sections by order
+const sortedSections = sections.sort((a, b) => a.data.order - b.data.order);
+
+// Get active alerts
+const activeAlerts = alerts
+  .filter(alert => alert.data.active)
+  .sort((a, b) => a.data.order - b.data.order);
+
+// Define section icons and colors
+const sectionConfig: Record<string, { icon: string; color: string }> = {
+  'inicio': { icon: '🏠', color: 'text-primary' },
+  'antes-del-cambio': { icon: '⚖️', color: 'text-secondary' },
+  'partida-nacimiento': { icon: '📜', color: 'text-accent' },
+  'dni': { icon: '🆔', color: 'text-info' },
+  'instituciones': { icon: '🏢', color: 'text-success' },
+  'reclamos': { icon: '⚖️', color: 'text-warning' },
+  'faq': { icon: '❓', color: 'text-error' },
+  'recursos': { icon: '🤝', color: 'text-primary' },
+  'marco-legal': { icon: '📖', color: 'text-secondary' }
+};
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+<Layout title="Guía para el cambio legal de nombre y género en Argentina">
+  <div class="container mx-auto px-4 py-8">
+    
+    <!-- Alerts Section -->
+    {activeAlerts.length > 0 && (
+      <div class="mb-8">
+        {activeAlerts.map(alert => (
+          <div class={`alert alert-${alert.data.type} mb-4`}>
+            <div>
+              <h3 class="font-bold">{alert.data.title}</h3>
+              <div class="text-sm" set:html={alert.body} />
+            </div>
+          </div>
+        ))}
+      </div>
+    )}
+
+    <!-- Hero Section -->
+    <div class="hero bg-gradient-to-r from-primary to-secondary text-primary-content mb-12 rounded-2xl">
+      <div class="hero-content text-center py-16">
+        <div class="max-w-full">
+          <h1 class="text-4xl md:text-6xl font-bold mb-6">
+            🏳️‍⚧️ Guía de Cambio de Género
+          </h1>
+          <p class="text-xl md:text-2xl mb-8 opacity-90">
+            Tu guía paso a paso para el cambio legal de nombre y género en Argentina
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/antes-del-cambio" class="btn btn-accent btn-lg">
+              Comenzar ahora
+            </a>
+            <a href="/faq" class="btn btn-outline btn-lg text-white border-white hover:bg-white hover:text-primary">
+              Preguntas frecuentes
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Introduction -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold mb-4">Una guía hecha por y para la comunidad</h2>
+      <p class="text-lg text-base-content opacity-80 max-w-3xl mx-auto">
+        Esta información fue recopilada por la comunidad trans, travesti y no binarie. 
+        Es completamente gratuita y está diseñada para ser accesible desde cualquier dispositivo.
+      </p>
+    </div>
+
+    <!-- Key Features -->
+    <div class="grid md:grid-cols-3 gap-8 mb-16">
+      <div class="card bg-base-200 shadow-xl">
+        <div class="card-body text-center">
+          <div class="text-4xl mb-4">📱</div>
+          <h3 class="card-title justify-center">Móvil-friendly</h3>
+          <p>Diseñado para usar desde tu celular, donde sea que estés.</p>
+        </div>
+      </div>
+      
+      <div class="card bg-base-200 shadow-xl">
+        <div class="card-body text-center">
+          <div class="text-4xl mb-4">🆓</div>
+          <h3 class="card-title justify-center">Completamente gratis</h3>
+          <p>Información libre para compartir y reproducir sin restricciones.</p>
+        </div>
+      </div>
+      
+      <div class="card bg-base-200 shadow-xl">
+        <div class="card-body text-center">
+          <div class="text-4xl mb-4">🔄</div>
+          <h3 class="card-title justify-center">Siempre actualizada</h3>
+          <p>Mantenemos la información al día con los últimos cambios legales.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sections Grid -->
+    <div class="mb-16">
+      <h2 class="text-3xl font-bold text-center mb-8">Explorá la guía por secciones</h2>
+      
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {sortedSections.filter(section => section.data.slug !== 'inicio').map(section => {
+          const config = sectionConfig[section.data.slug] || { icon: '📄', color: 'text-neutral' };
+          return (
+            <a href={`/${section.data.slug}`} class="card bg-base-200 shadow-xl hover:scale-105 transition-transform duration-300">
+              <div class="card-body">
+                <div class={`text-4xl mb-2 ${config.color}`}>
+                  {section.data.icon || config.icon}
+                </div>
+                <h3 class="card-title text-lg">{section.data.title}</h3>
+                <p class="text-sm text-base-content opacity-70">
+                  {section.data.description}
+                </p>
+                <div class="card-actions justify-end mt-4">
+                  <span class="text-primary hover:text-primary-focus text-sm font-semibold">
+                    Leer más →
+                  </span>
+                </div>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+
+    <!-- Process Overview -->
+    <div class="bg-base-200 rounded-2xl p-8 mb-16 max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-8">El proceso en pasos simples</h2>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="bg-primary text-primary-content w-20 h-20 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
+          <h3 class="font-bold mb-3 text-lg">Conocé tus derechos</h3>
+          <p class="text-sm leading-relaxed">Antes del cambio ya tenés derechos que debés conocer.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="bg-secondary text-secondary-content w-20 h-20 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
+          <h3 class="font-bold mb-3 text-lg">Cambiar partida</h3>
+          <p class="text-sm leading-relaxed">Primer paso: rectificar tu partida de nacimiento.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="bg-accent text-accent-content w-20 h-20 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">3</div>
+          <h3 class="font-bold mb-3 text-lg">Actualizar DNI</h3>
+          <p class="text-sm leading-relaxed">Con la nueva partida, tramitá tu DNI actualizado.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="bg-success text-success-content w-20 h-20 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">4</div>
+          <h3 class="font-bold mb-3 text-lg">Cambiar en instituciones</h3>
+          <p class="text-sm leading-relaxed">Actualizá tus datos en bancos, trabajo, estudios, etc.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Important Notice -->
+    <div class="alert alert-warning mb-8">
+      <div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.732-.833-2.5 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
+        </svg>
+        <div>
+          <h3 class="font-bold">Aviso importante</h3>
+          <div class="text-sm">
+            Esta guía tiene fines informativos y no reemplaza el asesoramiento legal profesional. 
+            Siempre verificá la información más reciente con las instituciones correspondientes.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact and Support -->
+    <div class="text-center mb-8">
+      <h2 class="text-2xl font-bold mb-4">¿Necesitás ayuda?</h2>
+      <p class="mb-6">
+        No estás solx en este proceso. Hay organizaciones y personas que pueden acompañarte.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/recursos" class="btn btn-primary">
+          Ver recursos de apoyo
+        </a>
+        <a href="/reclamos" class="btn btn-outline">
+          ¿Tuviste problemas?
+        </a>
+      </div>
+    </div>
+
+    <!-- Community Message -->
+    <div class="bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-2xl p-8 text-center">
+      <h2 class="text-2xl font-bold mb-4">
+        "Nuestras identidades son válidas, nuestros derechos son reales."
+      </h2>
+      <p class="text-lg opacity-90">
+        Esta guía es un trabajo colectivo de la comunidad trans, travesti y no binarie de Argentina.
+        Compartila, usala, y ayudanos a que llegue a quien la necesite.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- Netlify Identity Widget -->
+  <script>
+    // @ts-ignore - Netlify Identity is loaded externally
+    if (typeof window !== 'undefined' && window.netlifyIdentity) {
+      // @ts-ignore
+      window.netlifyIdentity.on("init", (user: any) => {
+        if (!user) {
+          // @ts-ignore
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</Layout>

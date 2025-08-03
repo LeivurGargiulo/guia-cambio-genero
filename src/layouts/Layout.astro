@@ -1,0 +1,248 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Guía para el cambio legal de nombre y género en Argentina" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content={description} />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="generator" content={Astro.generator} />
+  
+  <!-- Open Graph meta tags -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_AR" />
+  
+  <!-- Twitter Card meta tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Custom dropdown persistence styles -->
+  <style>
+    .dropdown-persistent .dropdown-content {
+      transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    }
+    
+    .dropdown-persistent:hover .dropdown-content,
+    .dropdown-persistent.show-dropdown .dropdown-content {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .dropdown-persistent .dropdown-content {
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    /* Add small buffer area for easier navigation */
+    .dropdown-persistent {
+      position: relative;
+    }
+    
+    .dropdown-persistent::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      height: 8px;
+      z-index: 39;
+    }
+    
+    /* Navbar styling - remove bold and ensure horizontal alignment */
+    .navbar .menu li > a,
+    .navbar .menu li > div,
+    .navbar .btn {
+      font-weight: normal;
+    }
+    
+    .navbar .menu.menu-horizontal {
+      align-items: center;
+    }
+    
+    .navbar .menu.menu-horizontal li {
+      display: inline-flex;
+      align-items: center;
+    }
+  </style>
+  
+  <title>{title}</title>
+</head>
+<body>
+  <header class="navbar bg-base-100 shadow-lg sticky top-0 z-50">
+    <div class="navbar-start">
+      <div class="dropdown">
+        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </div>
+        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[60] p-2 shadow bg-base-100 rounded-box w-52">
+          <li><a href="/">Inicio</a></li>
+          <li>
+            <details>
+              <summary>Guía</summary>
+              <ul class="p-2">
+                <li><a href="/antes-del-cambio">Antes del cambio</a></li>
+                <li><a href="/partida-nacimiento">Partida de nacimiento</a></li>
+                <li><a href="/dni">DNI</a></li>
+                <li><a href="/instituciones">Instituciones</a></li>
+                <li><a href="/reclamos">Reclamos</a></li>
+                <li><a href="/marco-legal">Marco legal</a></li>
+              </ul>
+            </details>
+          </li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/recursos">Recursos</a></li>
+        </ul>
+      </div>
+      <a href="/" class="btn btn-ghost text-xl font-normal">
+        🏳️‍⚧️ Guía de Cambio de Género
+      </a>
+    </div>
+    
+    <div class="navbar-center hidden lg:flex">
+      <ul class="menu menu-horizontal px-1">
+        <li><a href="/">Inicio</a></li>
+        <li class="dropdown dropdown-hover dropdown-persistent">
+          <div tabindex="0" role="button" class="btn btn-ghost">Guía</div>
+          <ul class="dropdown-content menu p-2 bg-base-100 shadow-lg rounded-box z-40 w-56 top-full left-1/2 transform -translate-x-1/2 mt-3">
+            <li><a href="/antes-del-cambio">Antes del cambio</a></li>
+            <li><a href="/partida-nacimiento">Partida de nacimiento</a></li>
+            <li><a href="/dni">DNI</a></li>
+            <li><a href="/instituciones">Instituciones</a></li>
+            <li><a href="/reclamos">Reclamos</a></li>
+            <li><a href="/marco-legal">Marco legal</a></li>
+          </ul>
+        </li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/recursos">Recursos</a></li>
+      </ul>
+    </div>
+    
+    <div class="navbar-end">
+      <div class="dropdown dropdown-end">
+        <div tabindex="0" role="button" class="btn btn-ghost">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
+        </div>
+        <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+          <li><button onclick="document.documentElement.setAttribute('data-theme', 'light')">Tema claro</button></li>
+          <li><button onclick="document.documentElement.setAttribute('data-theme', 'dark')">Tema oscuro</button></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="min-h-screen">
+    <slot />
+  </main>
+
+  <footer class="footer footer-center p-6 bg-base-200 text-base-content">
+    <div class="max-w-6xl mx-auto w-full">
+      <!-- Navigation Links -->
+      <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
+        <a href="/" class="link link-hover">Inicio</a>
+        <a href="/antes-del-cambio" class="link link-hover">Antes del cambio</a>
+        <a href="/partida-nacimiento" class="link link-hover">Partida de nacimiento</a>
+        <a href="/dni" class="link link-hover">DNI</a>
+        <a href="/instituciones" class="link link-hover">Instituciones</a>
+        <a href="/reclamos" class="link link-hover">Reclamos</a>
+        <a href="/marco-legal" class="link link-hover">Marco legal</a>
+        <a href="/recursos" class="link link-hover">Recursos</a>
+        <a href="/faq" class="link link-hover">FAQ</a>
+      </nav>
+      
+      <!-- Social Media -->
+      <div class="flex items-center justify-center gap-4 mt-3">
+        <a href="https://www.instagram.com/lx.guia.dni/" class="link link-hover flex items-center gap-2 text-primary hover:text-primary-focus" 
+           title="Síguenos en Instagram" target="_blank" rel="noopener noreferrer">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.621 5.367 11.988 11.988 11.988s11.988-5.367 11.988-11.988C24.005 5.367 18.638.001 12.017.001zM8.449 16.988c-1.297 0-2.348-1.051-2.348-2.348s1.051-2.348 2.348-2.348 2.348 1.051 2.348 2.348-1.051 2.348-2.348 2.348zm7.718 0c-1.297 0-2.348-1.051-2.348-2.348s1.051-2.348 2.348-2.348 2.348 1.051 2.348 2.348-1.051 2.348-2.348 2.348z"/>
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          <span class="text-sm">@lx.guia.dni</span>
+        </a>
+      </div>
+      
+      <!-- Info and last updated -->
+      <div class="text-center mt-3">
+        <p class="text-xs opacity-70">
+          Esta guía fue creada por y para la comunidad trans, travesti y no binarie. Contenido libre para reproducir y compartir.
+        </p>
+        <p class="text-xs opacity-60 mt-1">
+          Última actualización: <time datetime="2025-08-02">Agosto 2025</time>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Theme persistence
+    const theme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+    
+    // Save theme preference
+    document.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      if (target?.textContent === 'Tema claro') {
+        localStorage.setItem('theme', 'light');
+      } else if (target?.textContent === 'Tema oscuro') {
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+    
+    // Dropdown persistence functionality
+    document.addEventListener('DOMContentLoaded', () => {
+      const dropdown = document.querySelector('.dropdown-persistent');
+      let hideTimeout: ReturnType<typeof setTimeout>;
+      
+      if (dropdown) {
+        dropdown.addEventListener('mouseenter', () => {
+          clearTimeout(hideTimeout);
+          dropdown.classList.add('show-dropdown');
+        });
+        
+        dropdown.addEventListener('mouseleave', () => {
+          hideTimeout = setTimeout(() => {
+            dropdown.classList.remove('show-dropdown');
+          }, 1500); // 1.5 second persistence for easier navigation
+        });
+        
+        // Also handle dropdown content hover to maintain visibility
+        const dropdownContent = dropdown.querySelector('.dropdown-content');
+        if (dropdownContent) {
+          dropdownContent.addEventListener('mouseenter', () => {
+            clearTimeout(hideTimeout);
+            dropdown.classList.add('show-dropdown');
+          });
+          
+          dropdownContent.addEventListener('mouseleave', () => {
+            hideTimeout = setTimeout(() => {
+              dropdown.classList.remove('show-dropdown');
+            }, 1500); // 1.5 second persistence
+          });
+        }
+      }
+    });
+  </script>
+</body>
+</html>

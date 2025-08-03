@@ -1,0 +1,130 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+locale: es
+
+collections:
+  - name: "sections"
+    label: "Secciones de la Guía"
+    folder: "src/content/sections"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - label: "Título"
+        name: "title"
+        widget: "string"
+        hint: "El título que aparecerá en la página"
+      - label: "URL (slug)"
+        name: "slug"
+        widget: "string"
+        pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Solo letras minúsculas, números y guiones']
+        hint: "La URL de la página (ej: antes-del-cambio)"
+      - label: "Orden"
+        name: "order"
+        widget: "number"
+        min: 1
+        max: 20
+        hint: "Orden de aparición en el menú"
+      - label: "Descripción"
+        name: "description"
+        widget: "string"
+        required: false
+        hint: "Descripción breve para SEO y vista previa"
+      - label: "Icono"
+        name: "icon"
+        widget: "string"
+        required: false
+        hint: "Emoji o ícono para el menú (ej: 🏠)"
+      - label: "Última actualización"
+        name: "lastUpdated"
+        widget: "date"
+        format: "YYYY-MM-DD"
+        hint: "Fecha de la última modificación"
+      - label: "Contenido"
+        name: "body"
+        widget: "markdown"
+        hint: "El contenido principal de la sección"
+
+  - name: "alerts"
+    label: "Alertas y Avisos"
+    folder: "src/content/alerts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - label: "Título del aviso"
+        name: "title"
+        widget: "string"
+      - label: "Tipo de alerta"
+        name: "type"
+        widget: "select"
+        options:
+          - { label: "Información", value: "info" }
+          - { label: "Advertencia", value: "warning" }
+          - { label: "Éxito", value: "success" }
+          - { label: "Error", value: "error" }
+      - label: "Activa"
+        name: "active"
+        widget: "boolean"
+        default: true
+        hint: "Si está activada, se muestra en la página principal"
+      - label: "Orden"
+        name: "order"
+        widget: "number"
+        min: 1
+        hint: "Orden de aparición (1 = primero)"
+      - label: "Contenido del aviso"
+        name: "body"
+        widget: "markdown"
+
+  - name: "site_config"
+    label: "Configuración del Sitio"
+    files:
+      - label: "Información General"
+        name: "general"
+        file: "src/data/site-config.yaml"
+        fields:
+          - label: "Título del sitio"
+            name: "title"
+            widget: "string"
+            default: "Guía para el cambio legal de nombre y género en Argentina"
+          - label: "Descripción"
+            name: "description"
+            widget: "text"
+            default: "Guía comunitaria para el cambio legal de nombre y género en Argentina"
+          - label: "URL del sitio"
+            name: "url"
+            widget: "string"
+            default: "https://tu-dominio.netlify.app"
+          - label: "Email de contacto"
+            name: "contact_email"
+            widget: "string"
+            required: false
+          - label: "Redes sociales"
+            name: "social"
+            widget: "object"
+            required: false
+            fields:
+              - label: "Facebook"
+                name: "facebook"
+                widget: "string"
+                required: false
+              - label: "Twitter"
+                name: "twitter"
+                widget: "string"
+                required: false
+              - label: "Instagram"
+                name: "instagram"
+                widget: "string"
+                required: false
+          - label: "Mensaje de bienvenida"
+            name: "welcome_message"
+            widget: "markdown"
+            hint: "Texto que aparece en la página principal"
+            default: |
+              # ¡Bienvenidx!
+              
+              Esta guía te acompañará paso a paso en el proceso de cambio legal de nombre y género en Argentina.

@@ -1,20 +1,211 @@
-/*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-	--accent: #2337ff;
-	--accent-dark: #000d8a;
-	--black: 15, 18, 25;
-	--gray: 96, 115, 159;
-	--gray-light: 229, 233, 240;
-	--gray-dark: 34, 41, 57;
-	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
-	--box-shadow:
-		0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px
-		rgba(var(--gray), 33%);
+/* Custom CSS for the guide */
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply font-sans text-base-content bg-base-100;
+  }
+}
+
+@layer components {
+  @tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS for the guide */
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply font-sans text-base-content bg-base-100;
+  }
+}
+
+@layer components {
+  .content-prose {
+    @apply max-w-none;
+  }
+  
+  .section-card {
+    @apply card bg-base-200 shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer h-full;
+  }
+  
+  .section-card .card-body {
+    @apply p-6;
+  }
+  
+  .btn-primary-outline {
+    @apply btn btn-outline btn-primary;
+  }
+  
+  .hero-gradient {
+    background: linear-gradient(135deg, hsl(var(--p)) 0%, hsl(var(--s)) 100%);
+  }
+  
+  .navbar-brand {
+    @apply text-xl font-bold text-primary;
+  }
+  
+  /* Mobile menu styles */
+  .mobile-menu {
+    @apply drawer-side;
+  }
+  
+  .mobile-menu-overlay {
+    @apply drawer-overlay;
+  }
+  
+  /* Navigation styles */
+  .nav-link {
+    @apply text-base-content hover:text-primary transition-colors duration-200;
+  }
+  
+  .nav-link.active {
+    @apply text-primary font-medium;
+  }
+  
+  /* Feature card styles */
+  .feature-card {
+    @apply bg-base-200 rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300;
+  }
+  
+  .feature-icon {
+    @apply text-4xl mb-4 block;
+  }
+  
+  /* Process step styles */
+  .process-step {
+    @apply relative bg-base-200 rounded-lg p-6 text-center;
+  }
+  
+  .process-step::after {
+    content: '';
+    @apply absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2;
+    @apply w-0 h-0 border-l-8 border-y-8 border-y-transparent;
+    border-left-color: hsl(var(--b2));
+  }
+  
+  .process-step:last-child::after {
+    display: none;
+  }
+  
+  /* Alert styles */
+  .alert-custom {
+    @apply rounded-lg p-4 mb-4 border-l-4;
+  }
+  
+  .alert-info {
+    @apply bg-info bg-opacity-10 border-info text-info;
+  }
+  
+  .alert-warning {
+    @apply bg-warning bg-opacity-10 border-warning text-warning;
+  }
+  
+  .alert-success {
+    @apply bg-success bg-opacity-10 border-success text-success;
+  }
+  
+  .alert-error {
+    @apply bg-error bg-opacity-10 border-error text-error;
+  }
+  
+  /* Content styles */
+  .content h1 {
+    @apply text-3xl font-bold text-base-content mt-8 mb-4 first:mt-0;
+  }
+  
+  .content h2 {
+    @apply text-2xl font-semibold text-base-content mt-6 mb-3;
+  }
+  
+  .content h3 {
+    @apply text-xl font-medium text-base-content mt-4 mb-2;
+  }
+  
+  .content p {
+    @apply text-base-content mb-4 leading-relaxed;
+  }
+  
+  .content ul, .content ol {
+    @apply text-base-content mb-4 pl-6;
+  }
+  
+  .content li {
+    @apply mb-2;
+  }
+  
+  .content blockquote {
+    @apply border-l-4 border-primary bg-primary bg-opacity-10 p-4 my-6 italic;
+  }
+  
+  .content strong {
+    @apply font-bold text-base-content;
+  }
+  
+  .content em {
+    @apply italic;
+  }
+  
+  .content a {
+    @apply text-primary hover:text-primary-content underline;
+  }
+  
+  .content table {
+    @apply w-full border-collapse bg-base-100 shadow-sm rounded-lg overflow-hidden my-6;
+  }
+  
+  .content thead {
+    @apply bg-base-200;
+  }
+  
+  .content th {
+    @apply p-3 text-left font-semibold text-base-content border-b border-base-300;
+  }
+  
+  .content td {
+    @apply p-3 text-base-content border-b border-base-300;
+  }
+  
+  .content tbody tr:hover {
+    @apply bg-base-200;
+  }
+  
+  /* Responsive utilities */
+  @media (max-width: 768px) {
+    .content h1 {
+      @apply text-2xl;
+    }
+    
+    .content h2 {
+      @apply text-xl;
+    }
+    
+    .hero-gradient h1 {
+      @apply text-3xl;
+    }
+  }
+}
+  
+  .section-card {
+    @apply card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300;
+  }
+  
+  .guide-button {
+    @apply btn btn-primary btn-lg w-full sm:w-auto;
+  }
+  
+  .alert-banner {
+    @apply alert alert-info mb-6;
+  }
 }
 @font-face {
 	font-family: "Atkinson";
