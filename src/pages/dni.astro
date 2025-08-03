@@ -1,16 +1,13 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import ContentPage from '../components/ContentPage.astro';
 ---
 
-<Layout title="DNI - Guía de Cambio de Género">
-  <main class="container mx-auto px-4 py-8 max-w-4xl">
-    
-    <div class="breadcrumbs text-sm mb-6">
-      <ul>
-        <li><a href="/" class="text-primary hover:text-primary-focus">Inicio</a></li>
-        <li>DNI</li>
-      </ul>
-    </div>
+<ContentPage 
+  slug="dni"
+  showAlert={true}
+  alertType="info"
+  alertMessage="Cómo actualizar tu DNI después del cambio de partida de nacimiento"
+/>
 
     <div class="prose max-w-none">
       <div class="flex items-center gap-3 mb-6">

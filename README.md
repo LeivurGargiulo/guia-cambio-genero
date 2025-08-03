@@ -2,7 +2,6 @@
 
 > A comprehensive community-driven guide for legal name and gender change in Argentina
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/your-badge-id/deploy-status)](https://app.netlify.com/sites/guia-cambio-genero/deploys)
 [![Built with Astro](https://astro.badg.es/v2/built-with-astro/tiny.svg)](https://astro.build)
 
 ## 🌟 About

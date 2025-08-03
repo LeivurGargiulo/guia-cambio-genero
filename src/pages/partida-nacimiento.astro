@@ -1,9 +1,13 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import ContentPage from '../components/ContentPage.astro';
 ---
 
-<Layout title="Partida de nacimiento - Guía de Cambio de Género">
-  <main class="container mx-auto px-4 py-8 max-w-4xl">
+<ContentPage 
+  slug="partida-nacimiento"
+  showAlert={true}
+  alertType="info"
+  alertMessage="Primer paso indispensable para poder actualizar nombre y género en el DNI"
+/>
     
     <div class="breadcrumbs text-sm mb-6">
       <ul>

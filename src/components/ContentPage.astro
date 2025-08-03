@@ -1,0 +1,42 @@
+---
+import { getEntry, render } from 'astro:content';
+import PageLayout from '../layouts/PageLayout.astro';
+import PageHeader from './PageHeader.astro';
+
+export interface Props {
+  slug: string;
+  maxWidth?: 'max-w-4xl' | 'max-w-5xl' | 'max-w-6xl' | 'max-w-7xl';
+  showAlert?: boolean;
+  alertType?: 'info' | 'warning' | 'success' | 'error';
+  alertMessage?: string;
+}
+
+const { slug, maxWidth = 'max-w-6xl', showAlert = false, alertType = 'info', alertMessage } = Astro.props;
+
+// Get the content from the sections collection
+const entry = await getEntry('sections', slug);
+
+if (!entry) {
+  throw new Error(`No content found for slug: ${slug}`);
+}
+
+const { data } = entry;
+const { Content } = await render(entry);
+
+// Construct page title
+const pageTitle = `${data.title} - Guía de Cambio de Género`;
+---
+
+<PageLayout title={pageTitle} description={data.description} maxWidth={maxWidth}>
+  <PageHeader 
+    title={data.title}
+    description={data.description}
+    icon={data.icon}
+    showAlert={showAlert}
+    alertType={alertType}
+    alertMessage={alertMessage}
+  >
+    <!-- Render the markdown content -->
+    <Content />
+  </PageHeader>
+</PageLayout>

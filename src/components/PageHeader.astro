@@ -1,0 +1,54 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  icon?: string;
+  breadcrumbLabel?: string;
+  showAlert?: boolean;
+  alertType?: 'info' | 'warning' | 'success' | 'error';
+  alertMessage?: string;
+}
+
+const { 
+  title, 
+  description, 
+  icon, 
+  breadcrumbLabel = title,
+  showAlert = false,
+  alertType = 'info',
+  alertMessage 
+} = Astro.props;
+---
+
+<!-- Breadcrumbs -->
+<div class="breadcrumbs text-sm mb-6">
+  <ul>
+    <li><a href="/" class="text-primary hover:text-primary-focus">Inicio</a></li>
+    <li>{breadcrumbLabel}</li>
+  </ul>
+</div>
+
+<div class="prose max-w-none">
+  <!-- Page Header -->
+  <div class="flex items-center gap-3 mb-6">
+    {icon && <span class="text-4xl">{icon}</span>}
+    <h1 class="text-3xl md:text-4xl font-bold mb-0">{title}</h1>
+  </div>
+
+  <!-- Optional Alert -->
+  {showAlert && alertMessage && (
+    <div class={`alert alert-${alertType} mb-6`}>
+      <span>
+        <strong set:html={alertMessage} />
+      </span>
+    </div>
+  )}
+
+  <!-- Optional Description -->
+  {description && (
+    <p class="text-lg text-base-content opacity-80 mb-6">{description}</p>
+  )}
+
+  <!-- Content Slot -->
+  <slot />
+</div>

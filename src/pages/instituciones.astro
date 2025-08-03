@@ -1,9 +1,13 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import ContentPage from '../components/ContentPage.astro';
 ---
 
-<Layout title="Instituciones - Guía de Cambio de Género">
-  <main class="container mx-auto px-4 py-8 max-w-4xl">
+<ContentPage 
+  slug="instituciones"
+  showAlert={true}
+  alertType="warning"
+  alertMessage="Actualización de datos personales luego de la rectificación del DNI"
+/>
     
     <div class="breadcrumbs text-sm mb-6">
       <ul>
