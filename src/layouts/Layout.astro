@@ -92,6 +92,20 @@ const { title, description } = Astro.props;
           localStorage.setItem("theme", "dark");
         }
       });
+
+      // Netlify Identity initialization
+      // @ts-ignore - Netlify Identity is loaded externally
+      if (typeof window !== 'undefined' && window.netlifyIdentity) {
+        // @ts-ignore
+        window.netlifyIdentity.on("init", (user: any) => {
+          if (!user) {
+            // @ts-ignore
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
     </script>
   </body>
 </html>
