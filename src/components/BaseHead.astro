@@ -1,14 +1,17 @@
 ---
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
-import '../styles/global.css';
+import "../styles/global.css";
 
 export interface Props {
   title: string;
   description?: string;
 }
 
-const { title, description = "Guía para el cambio legal de nombre y género en Argentina" } = Astro.props;
+const {
+  title,
+  description = "Guía para el cambio legal de nombre y género en Argentina",
+} = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -30,8 +33,11 @@ const { title, description = "Guía para el cambio legal de nombre y género en 
 <meta name="twitter:description" content={description} />
 
 <!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+  rel="stylesheet"
+/>
 
 <title>{title}</title>

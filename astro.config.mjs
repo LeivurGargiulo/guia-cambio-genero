@@ -1,16 +1,16 @@
 // @ts-check
 
-import mdx from '@astrojs/mdx';
-import sitemap from '@astrojs/sitemap';
-import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
+import mdx from "@astrojs/mdx";
+import sitemap from "@astrojs/sitemap";
+import { defineConfig } from "astro/config";
+import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://guia-cambio-genero.netlify.app',
+  site: "https://guia-cambio-genero.netlify.app",
   integrations: [tailwind()],
   i18n: {
-    defaultLocale: 'es',
-    locales: ['es']
-  }
+    defaultLocale: "es",
+    locales: ["es"],
+  },
 });

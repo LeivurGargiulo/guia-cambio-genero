@@ -1,41 +1,51 @@
 ---
-import ContentPage from '../components/ContentPage.astro';
+import ContentPage from "../components/ContentPage.astro";
 ---
 
-<ContentPage 
+<ContentPage
   slug="instituciones"
   showAlert={true}
   alertType="warning"
   alertMessage="Actualización de datos personales luego de la rectificación del DNI"
 />
-    
-    <div class="breadcrumbs text-sm mb-6">
-      <ul>
-        <li><a href="/" class="text-primary hover:text-primary-focus">Inicio</a></li>
-        <li>Instituciones</li>
-      </ul>
-    </div>
 
-    <div class="prose max-w-none">
-      <div class="flex items-center gap-3 mb-6">
-        <span class="text-4xl">🏢</span>
-        <h1 class="text-3xl md:text-4xl font-bold mb-0">Instituciones</h1>
-      </div>
+<div class="breadcrumbs text-sm mb-6">
+  <ul>
+    <li>
+      <a href="/" class="text-primary hover:text-primary-focus">Inicio</a>
+    </li>
+    <li>Instituciones</li>
+  </ul>
+</div>
 
-      <div class="alert alert-info mb-6">
-        <span>
-          <strong>Cómo actualizar tus datos en bancos, universidades, trabajo y otros lugares</strong>
-        </span>
-      </div>
+<div class="prose max-w-none">
+  <div class="flex items-center gap-3 mb-6">
+    <span class="text-4xl">🏢</span>
+    <h1 class="text-3xl md:text-4xl font-bold mb-0">Instituciones</h1>
+  </div>
 
-      <h1>Actualización de datos personales luego de la rectificación del DNI</h1>
+  <div class="alert alert-info mb-6">
+    <span>
+      <strong
+        >Cómo actualizar tus datos en bancos, universidades, trabajo y otros
+        lugares</strong
+      >
+    </span>
+  </div>
 
-      <h2>Mensaje modelo</h2>
+  <h1>Actualización de datos personales luego de la rectificación del DNI</h1>
 
-      <p>Te recomendamos utilizar este texto para solicitar la actualización de tus datos personales de manera escrita, ya sea vía correo electrónico u otros medios.</p>
+  <h2>Mensaje modelo</h2>
 
-      <div class="mockup-code my-6">
-        <pre data-prefix="📝"><code>Estimados/as:
+  <p>
+    Te recomendamos utilizar este texto para solicitar la actualización de tus
+    datos personales de manera escrita, ya sea vía correo electrónico u otros
+    medios.
+  </p>
+
+  <div class="mockup-code my-6">
+    <pre
+      data-prefix="📝"><code>Estimados/as:
 
 Yo realicé el cambio de nombre y género tanto en mi partida de 
 nacimiento como en mi DNI. Solicito la rectificación de mi nombre 
@@ -57,178 +67,208 @@ así como [cualquier otra documentación que sea relevante].
 
 Saludos cordiales,
 [Tu nombre y apellido]</code></pre>
+  </div>
+
+  <h2>Correo electrónico</h2>
+
+  <p>
+    Para realizar muchos de estos trámites vas a tener que usar un correo
+    electrónico. Te recomendamos cambiarlo al comenzar las rectificaciones, para
+    evitar tener que realizar trámites extra.
+  </p>
+
+  <h3>Redireccionamiento automático (Gmail)</h3>
+  <p>
+    <a
+      href="https://support.google.com/mail/answer/10957?hl=en"
+      target="_blank"
+      class="link link-primary"
+      >Guía para redireccionar automáticamente hacia tu nuevo correo</a
+    >
+  </p>
+
+  <h2>Instituciones principales donde actualizar</h2>
+
+  <div class="grid md:grid-cols-2 gap-6 my-8">
+    <div class="card bg-base-200">
+      <div class="card-body">
+        <h3 class="card-title">🏦 Bancos</h3>
+        <ul class="text-sm space-y-1">
+          <li>• Cuentas corrientes y de ahorro</li>
+          <li>• Tarjetas de crédito y débito</li>
+          <li>• Préstamos y seguros</li>
+          <li>• Homebanking</li>
+        </ul>
       </div>
+    </div>
 
-      <h2>Correo electrónico</h2>
-
-      <p>Para realizar muchos de estos trámites vas a tener que usar un correo electrónico. Te recomendamos cambiarlo al comenzar las rectificaciones, para evitar tener que realizar trámites extra.</p>
-
-      <h3>Redireccionamiento automático (Gmail)</h3>
-      <p><a href="https://support.google.com/mail/answer/10957?hl=en" target="_blank" class="link link-primary">Guía para redireccionar automáticamente hacia tu nuevo correo</a></p>
-
-      <h2>Instituciones principales donde actualizar</h2>
-
-      <div class="grid md:grid-cols-2 gap-6 my-8">
-        <div class="card bg-base-200">
-          <div class="card-body">
-            <h3 class="card-title">🏦 Bancos</h3>
-            <ul class="text-sm space-y-1">
-              <li>• Cuentas corrientes y de ahorro</li>
-              <li>• Tarjetas de crédito y débito</li>
-              <li>• Préstamos y seguros</li>
-              <li>• Homebanking</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="card bg-base-200">
-          <div class="card-body">
-            <h3 class="card-title">🎓 Educación</h3>
-            <ul class="text-sm space-y-1">
-              <li>• Universidades</li>
-              <li>• Institutos terciarios</li>
-              <li>• Certificados y títulos</li>
-              <li>• Sistemas de gestión estudiantil</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="card bg-base-200">
-          <div class="card-body">
-            <h3 class="card-title">💼 Trabajo</h3>
-            <ul class="text-sm space-y-1">
-              <li>• Recursos humanos</li>
-              <li>• Obras sociales</li>
-              <li>• ART (Aseguradoras de riesgo)</li>
-              <li>• Recibos de sueldo</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="card bg-base-200">
-          <div class="card-body">
-            <h3 class="card-title">🏥 Salud</h3>
-            <ul class="text-sm space-y-1">
-              <li>• Obra social</li>
-              <li>• Prepaga</li>
-              <li>• Historia clínica</li>
-              <li>• Farmacias</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="card bg-base-200">
-          <div class="card-body">
-            <h3 class="card-title">🏛️ Organismos públicos</h3>
-            <ul class="text-sm space-y-1">
-              <li>• ANSES</li>
-              <li>• AFIP</li>
-              <li>• Padrón electoral</li>
-              <li>• Registro de conducir</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="card bg-base-200">
-          <div class="card-body">
-            <h3 class="card-title">📱 Servicios</h3>
-            <ul class="text-sm space-y-1">
-              <li>• Compañías telefónicas</li>
-              <li>• Servicios de luz, gas, agua</li>
-              <li>• Internet y cable</li>
-              <li>• Transporte público</li>
-            </ul>
-          </div>
-        </div>
+    <div class="card bg-base-200">
+      <div class="card-body">
+        <h3 class="card-title">🎓 Educación</h3>
+        <ul class="text-sm space-y-1">
+          <li>• Universidades</li>
+          <li>• Institutos terciarios</li>
+          <li>• Certificados y títulos</li>
+          <li>• Sistemas de gestión estudiantil</li>
+        </ul>
       </div>
+    </div>
 
-      <h2>Documentación necesaria</h2>
+    <div class="card bg-base-200">
+      <div class="card-body">
+        <h3 class="card-title">💼 Trabajo</h3>
+        <ul class="text-sm space-y-1">
+          <li>• Recursos humanos</li>
+          <li>• Obras sociales</li>
+          <li>• ART (Aseguradoras de riesgo)</li>
+          <li>• Recibos de sueldo</li>
+        </ul>
+      </div>
+    </div>
 
-      <ul>
-        <li>✅ <strong>DNI rectificado</strong> (original y copia)</li>
-        <li>✅ <strong>Partida de nacimiento rectificada</strong> (original y copia)</li>
-        <li>✅ <strong>Carta de solicitud</strong> (usar el modelo de arriba)</li>
-        <li>✅ <strong>Documentos específicos</strong> (según la institución)</li>
+    <div class="card bg-base-200">
+      <div class="card-body">
+        <h3 class="card-title">🏥 Salud</h3>
+        <ul class="text-sm space-y-1">
+          <li>• Obra social</li>
+          <li>• Prepaga</li>
+          <li>• Historia clínica</li>
+          <li>• Farmacias</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card bg-base-200">
+      <div class="card-body">
+        <h3 class="card-title">🏛️ Organismos públicos</h3>
+        <ul class="text-sm space-y-1">
+          <li>• ANSES</li>
+          <li>• AFIP</li>
+          <li>• Padrón electoral</li>
+          <li>• Registro de conducir</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card bg-base-200">
+      <div class="card-body">
+        <h3 class="card-title">📱 Servicios</h3>
+        <ul class="text-sm space-y-1">
+          <li>• Compañías telefónicas</li>
+          <li>• Servicios de luz, gas, agua</li>
+          <li>• Internet y cable</li>
+          <li>• Transporte público</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <h2>Documentación necesaria</h2>
+
+  <ul>
+    <li>✅ <strong>DNI rectificado</strong> (original y copia)</li>
+    <li>
+      ✅ <strong>Partida de nacimiento rectificada</strong> (original y copia)
+    </li>
+    <li>✅ <strong>Carta de solicitud</strong> (usar el modelo de arriba)</li>
+    <li>✅ <strong>Documentos específicos</strong> (según la institución)</li>
+  </ul>
+
+  <h2>Consejos importantes</h2>
+
+  <div class="alert alert-warning mb-6">
+    <div>
+      <h3 class="font-bold">💡 Tips para el proceso</h3>
+      <ul class="text-sm mt-2 space-y-1">
+        <li>
+          • <strong>Hacé todo por escrito</strong>: Dejá constancia de tus
+          solicitudes
+        </li>
+        <li>
+          • <strong>Guardá copias</strong>: De todos los documentos que
+          presentes
+        </li>
+        <li>
+          • <strong>Seguí el trámite</strong>: Consultá el estado regularmente
+        </li>
+        <li>
+          • <strong>Conocé tus derechos</strong>: No pueden negarse a actualizar
+          tus datos
+        </li>
       </ul>
-
-      <h2>Consejos importantes</h2>
-
-      <div class="alert alert-warning mb-6">
-        <div>
-          <h3 class="font-bold">💡 Tips para el proceso</h3>
-          <ul class="text-sm mt-2 space-y-1">
-            <li>• <strong>Hacé todo por escrito</strong>: Dejá constancia de tus solicitudes</li>
-            <li>• <strong>Guardá copias</strong>: De todos los documentos que presentes</li>
-            <li>• <strong>Seguí el trámite</strong>: Consultá el estado regularmente</li>
-            <li>• <strong>Conocé tus derechos</strong>: No pueden negarse a actualizar tus datos</li>
-          </ul>
-        </div>
-      </div>
-
-      <h2>¿Qué hacer si se niegan?</h2>
-
-      <p>Si alguna institución se niega a actualizar tus datos:</p>
-
-      <ol>
-        <li><strong>Recordales la ley</strong>: Tenés derecho a que se respete tu identidad</li>
-        <li><strong>Pedí por escrito</strong>: Que te expliquen por qué se niegan</li>
-        <li><strong>Escalá el reclamo</strong>: Hablá con supervisores o gerencias</li>
-        <li><strong>Buscá ayuda</strong>: Contactá organizaciones de apoyo</li>
-        <li><strong>Denunciá</strong>: En última instancia, podés hacer denuncia</li>
-      </ol>
-
-      <h2>Plazos estimados</h2>
-
-      <div class="overflow-x-auto">
-        <table class="table table-zebra w-full">
-          <thead>
-            <tr>
-              <th>Tipo de institución</th>
-              <th>Tiempo estimado</th>
-              <th>Observaciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Bancos</td>
-              <td>5-10 días hábiles</td>
-              <td>Pueden pedir documentación adicional</td>
-            </tr>
-            <tr>
-              <td>Universidades</td>
-              <td>10-15 días hábiles</td>
-              <td>Actualización en sistemas académicos</td>
-            </tr>
-            <tr>
-              <td>Trabajo</td>
-              <td>Inmediato</td>
-              <td>Depende de la política interna</td>
-            </tr>
-            <tr>
-              <td>Obras sociales</td>
-              <td>15-30 días</td>
-              <td>Actualización en ANSES incluida</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="mt-12 text-center bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-2xl p-6">
-        <p class="text-lg font-semibold mb-0">
-          <em>"Cada institución que actualiza tus datos es un paso más hacia el reconocimiento pleno de tu identidad."</em>
-        </p>
-      </div>
-
     </div>
+  </div>
 
-    <div class="flex flex-col sm:flex-row gap-4 justify-between mt-12">
-      <a href="/dni" class="btn btn-outline">
-        ← DNI
-      </a>
-      <a href="/marco-legal" class="btn btn-primary">
-        Marco legal →
-      </a>
-    </div>
+  <h2>¿Qué hacer si se niegan?</h2>
 
-  </main>
-</Layout>
+  <p>Si alguna institución se niega a actualizar tus datos:</p>
+
+  <ol>
+    <li>
+      <strong>Recordales la ley</strong>: Tenés derecho a que se respete tu
+      identidad
+    </li>
+    <li>
+      <strong>Pedí por escrito</strong>: Que te expliquen por qué se niegan
+    </li>
+    <li>
+      <strong>Escalá el reclamo</strong>: Hablá con supervisores o gerencias
+    </li>
+    <li><strong>Buscá ayuda</strong>: Contactá organizaciones de apoyo</li>
+    <li>
+      <strong>Denunciá</strong>: En última instancia, podés hacer denuncia
+    </li>
+  </ol>
+
+  <h2>Plazos estimados</h2>
+
+  <div class="overflow-x-auto">
+    <table class="table table-zebra w-full">
+      <thead>
+        <tr>
+          <th>Tipo de institución</th>
+          <th>Tiempo estimado</th>
+          <th>Observaciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Bancos</td>
+          <td>5-10 días hábiles</td>
+          <td>Pueden pedir documentación adicional</td>
+        </tr>
+        <tr>
+          <td>Universidades</td>
+          <td>10-15 días hábiles</td>
+          <td>Actualización en sistemas académicos</td>
+        </tr>
+        <tr>
+          <td>Trabajo</td>
+          <td>Inmediato</td>
+          <td>Depende de la política interna</td>
+        </tr>
+        <tr>
+          <td>Obras sociales</td>
+          <td>15-30 días</td>
+          <td>Actualización en ANSES incluida</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div
+    class="mt-12 text-center bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-2xl p-6"
+  >
+    <p class="text-lg font-semibold mb-0">
+      <em
+        >"Cada institución que actualiza tus datos es un paso más hacia el
+        reconocimiento pleno de tu identidad."</em
+      >
+    </p>
+  </div>
+</div>
+
+<div class="flex flex-col sm:flex-row gap-4 justify-between mt-12">
+  <a href="/dni" class="btn btn-outline"> ← DNI </a>
+  <a href="/marco-legal" class="btn btn-primary"> Marco legal → </a>
+</div>

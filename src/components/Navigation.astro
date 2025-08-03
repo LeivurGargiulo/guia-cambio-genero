@@ -6,11 +6,23 @@
   <div class="navbar-start">
     <div class="dropdown">
       <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        <svg
+          class="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </div>
-      <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[60] p-2 shadow bg-base-100 rounded-box w-52">
+      <ul
+        tabindex="0"
+        class="menu menu-sm dropdown-content mt-3 z-[60] p-2 shadow bg-base-100 rounded-box w-52"
+      >
         <li><a href="/">Inicio</a></li>
         <li>
           <details>
@@ -33,13 +45,15 @@
       🏳️‍⚧️ Guía de Cambio de Género
     </a>
   </div>
-  
+
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1">
       <li><a href="/">Inicio</a></li>
       <li class="dropdown dropdown-hover dropdown-persistent">
         <div tabindex="0" role="button" class="btn btn-ghost">Guía</div>
-        <ul class="dropdown-content menu p-2 bg-base-100 shadow-lg rounded-box z-40 w-56 top-full left-1/2 transform -translate-x-1/2 mt-3">
+        <ul
+          class="dropdown-content menu p-2 bg-base-100 shadow-lg rounded-box z-40 w-56 top-full left-1/2 transform -translate-x-1/2 mt-3"
+        >
           <li><a href="/antes-del-cambio">Antes del cambio</a></li>
           <li><a href="/partida-nacimiento">Partida de nacimiento</a></li>
           <li><a href="/dni">DNI</a></li>
@@ -52,17 +66,38 @@
       <li><a href="/recursos">Recursos</a></li>
     </ul>
   </div>
-  
+
   <div class="navbar-end">
     <div class="dropdown dropdown-end">
       <div tabindex="0" role="button" class="btn btn-ghost">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+        <svg
+          class="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+          ></path>
         </svg>
       </div>
-      <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-        <li><button onclick="document.documentElement.setAttribute('data-theme', 'light')">Tema claro</button></li>
-        <li><button onclick="document.documentElement.setAttribute('data-theme', 'dark')">Tema oscuro</button></li>
+      <ul
+        tabindex="0"
+        class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+      >
+        <li>
+          <button
+            onclick="document.documentElement.setAttribute('data-theme', 'light')"
+            >Tema claro</button>
+        </li>
+        <li>
+          <button
+            onclick="document.documentElement.setAttribute('data-theme', 'dark')"
+            >Tema oscuro</button>
+        </li>
       </ul>
     </div>
   </div>
@@ -70,33 +105,33 @@
 
 <script>
   // Dropdown persistence functionality
-  document.addEventListener('DOMContentLoaded', () => {
-    const dropdown = document.querySelector('.dropdown-persistent');
+  document.addEventListener("DOMContentLoaded", () => {
+    const dropdown = document.querySelector(".dropdown-persistent");
     let hideTimeout: ReturnType<typeof setTimeout>;
-    
+
     if (dropdown) {
-      dropdown.addEventListener('mouseenter', () => {
+      dropdown.addEventListener("mouseenter", () => {
         clearTimeout(hideTimeout);
-        dropdown.classList.add('show-dropdown');
+        dropdown.classList.add("show-dropdown");
       });
-      
-      dropdown.addEventListener('mouseleave', () => {
+
+      dropdown.addEventListener("mouseleave", () => {
         hideTimeout = setTimeout(() => {
-          dropdown.classList.remove('show-dropdown');
+          dropdown.classList.remove("show-dropdown");
         }, 1500); // 1.5 second persistence for easier navigation
       });
-      
+
       // Also handle dropdown content hover to maintain visibility
-      const dropdownContent = dropdown.querySelector('.dropdown-content');
+      const dropdownContent = dropdown.querySelector(".dropdown-content");
       if (dropdownContent) {
-        dropdownContent.addEventListener('mouseenter', () => {
+        dropdownContent.addEventListener("mouseenter", () => {
           clearTimeout(hideTimeout);
-          dropdown.classList.add('show-dropdown');
+          dropdown.classList.add("show-dropdown");
         });
-        
-        dropdownContent.addEventListener('mouseleave', () => {
+
+        dropdownContent.addEventListener("mouseleave", () => {
           hideTimeout = setTimeout(() => {
-            dropdown.classList.remove('show-dropdown');
+            dropdown.classList.remove("show-dropdown");
           }, 1500); // 1.5 second persistence
         });
       }

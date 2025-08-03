@@ -5,25 +5,27 @@ export interface Props {
   icon?: string;
   breadcrumbLabel?: string;
   showAlert?: boolean;
-  alertType?: 'info' | 'warning' | 'success' | 'error';
+  alertType?: "info" | "warning" | "success" | "error";
   alertMessage?: string;
 }
 
-const { 
-  title, 
-  description, 
-  icon, 
+const {
+  title,
+  description,
+  icon,
   breadcrumbLabel = title,
   showAlert = false,
-  alertType = 'info',
-  alertMessage 
+  alertType = "info",
+  alertMessage,
 } = Astro.props;
 ---
 
 <!-- Breadcrumbs -->
 <div class="breadcrumbs text-sm mb-6">
   <ul>
-    <li><a href="/" class="text-primary hover:text-primary-focus">Inicio</a></li>
+    <li>
+      <a href="/" class="text-primary hover:text-primary-focus">Inicio</a>
+    </li>
     <li>{breadcrumbLabel}</li>
   </ul>
 </div>
@@ -36,18 +38,22 @@ const {
   </div>
 
   <!-- Optional Alert -->
-  {showAlert && alertMessage && (
-    <div class={`alert alert-${alertType} mb-6`}>
-      <span>
-        <strong set:html={alertMessage} />
-      </span>
-    </div>
-  )}
+  {
+    showAlert && alertMessage && (
+      <div class={`alert alert-${alertType} mb-6`}>
+        <span>
+          <strong set:html={alertMessage} />
+        </span>
+      </div>
+    )
+  }
 
   <!-- Optional Description -->
-  {description && (
-    <p class="text-lg text-base-content opacity-80 mb-6">{description}</p>
-  )}
+  {
+    description && (
+      <p class="text-lg text-base-content opacity-80 mb-6">{description}</p>
+    )
+  }
 
   <!-- Content Slot -->
   <slot />

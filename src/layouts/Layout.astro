@@ -1,7 +1,7 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Navigation from '../components/Navigation.astro';
-import Footer from '../components/Footer.astro';
+import BaseHead from "../components/BaseHead.astro";
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
 
 export interface Props {
   title: string;
@@ -11,85 +11,87 @@ export interface Props {
 const { title, description } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es" data-theme="light">
-<head>
-  <BaseHead title={title} description={description} />
-  
-  <!-- Custom dropdown persistence styles -->
-  <style>
-    .dropdown-persistent .dropdown-content {
-      transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-    }
-    
-    .dropdown-persistent:hover .dropdown-content,
-    .dropdown-persistent.show-dropdown .dropdown-content {
-      opacity: 1;
-      visibility: visible;
-    }
-    
-    .dropdown-persistent .dropdown-content {
-      opacity: 0;
-      visibility: hidden;
-    }
-    
-    /* Add small buffer area for easier navigation */
-    .dropdown-persistent {
-      position: relative;
-    }
-    
-    .dropdown-persistent::after {
-      content: '';
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      height: 8px;
-      z-index: 39;
-    }
-    
-    /* Navbar styling - remove bold and ensure horizontal alignment */
-    .navbar .menu li > a,
-    .navbar .menu li > div,
-    .navbar .btn {
-      font-weight: normal;
-    }
-    
-    .navbar .menu.menu-horizontal {
-      align-items: center;
-    }
-    
-    .navbar .menu.menu-horizontal li {
-      display: inline-flex;
-      align-items: center;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <Navigation />
-  </header>
+  <head>
+    <BaseHead title={title} description={description} />
 
-  <main class="min-h-screen">
-    <slot />
-  </main>
-
-  <Footer />
-
-  <script>
-    // Theme persistence
-    const theme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', theme);
-    
-    // Save theme preference
-    document.addEventListener('click', (e) => {
-      const target = e.target as HTMLElement;
-      if (target?.textContent === 'Tema claro') {
-        localStorage.setItem('theme', 'light');
-      } else if (target?.textContent === 'Tema oscuro') {
-        localStorage.setItem('theme', 'dark');
+    <!-- Custom dropdown persistence styles -->
+    <style>
+      .dropdown-persistent .dropdown-content {
+        transition:
+          opacity 0.3s ease-in-out,
+          visibility 0.3s ease-in-out;
       }
-    });
-  </script>
-</body>
+
+      .dropdown-persistent:hover .dropdown-content,
+      .dropdown-persistent.show-dropdown .dropdown-content {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .dropdown-persistent .dropdown-content {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      /* Add small buffer area for easier navigation */
+      .dropdown-persistent {
+        position: relative;
+      }
+
+      .dropdown-persistent::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        height: 8px;
+        z-index: 39;
+      }
+
+      /* Navbar styling - remove bold and ensure horizontal alignment */
+      .navbar .menu li > a,
+      .navbar .menu li > div,
+      .navbar .btn {
+        font-weight: normal;
+      }
+
+      .navbar .menu.menu-horizontal {
+        align-items: center;
+      }
+
+      .navbar .menu.menu-horizontal li {
+        display: inline-flex;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <Navigation />
+    </header>
+
+    <main class="min-h-screen">
+      <slot />
+    </main>
+
+    <Footer />
+
+    <script>
+      // Theme persistence
+      const theme = localStorage.getItem("theme") || "light";
+      document.documentElement.setAttribute("data-theme", theme);
+
+      // Save theme preference
+      document.addEventListener("click", (e) => {
+        const target = e.target as HTMLElement;
+        if (target?.textContent === "Tema claro") {
+          localStorage.setItem("theme", "light");
+        } else if (target?.textContent === "Tema oscuro") {
+          localStorage.setItem("theme", "dark");
+        }
+      });
+    </script>
+  </body>
 </html>
